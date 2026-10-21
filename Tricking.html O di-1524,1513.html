@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Depth Project</title>
+    <style>
+        /* CSS SECTION */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: #040d04;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Registration Screen with Nature Backdrop */
+        #register-screen {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .glass-box {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        h2 { margin-bottom: 20px; letter-spacing: 1px; }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            color: white;
+            outline: none;
+        }
+
+        .register-btn {
+            width: 100%;
+            padding: 12px;
+            background: #2d5a27;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.4s;
+            margin-top: 10px;
+        }
+
+        .register-btn:hover {
+            background: #3e7a37;
+            letter-spacing: 2px;
+        }
+
+        /* Main Website Section */
+        #main-website {
+            display: none;
+        }
+
+        /* Parallax Section Trick */
+        .parallax-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920&auto=format&fit=crop');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .hero-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px 40px;
+            border-radius: 10px;
+        }
+
+        .content-area {
+            background: white;
+            color: #1a1a1a;
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .nature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .nature-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .nature-card:hover {
+            transform: scale(1.05);
+        }
+
+        .nature-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .footer {
+            background: #040d04;
+            padding: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="register-screen">
+        <div class="glass-box">
+            <h2>Nature Gate</h2>
+            <input type="text" id="username" placeholder="Full Name">
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" placeholder="Password">
+            <button class="register-btn" onclick="openWebsite()">Register</button>
+        </div>
+    </div>
+
+    <div id="main-website">
+        <div class="parallax-hero">
+            <div class="hero-text">Deep Forest</div>
+        </div>
+
+        <section class="content-area">
+            <h1>Explore The Greenery</h1>
+            <p style="max-width: 600px; margin: 20px auto;">Observe how the background image stays fixed while you scroll. This is the visual illusion of depth.</p>
+            
+            <div class="nature-grid">
+                <div class="nature-card">
+                    <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=800" alt="Mountain">
+                    <div style="padding: 15px;"><h3>High Peaks</h3></div>
+                </div>
+                <div class="nature-card">
+                    <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=800" alt="Forest">
+                    <div style="padding: 15px;"><h3>Wild Woods</h3></div>
+                </div>
+                <div class="nature-card">
+                    <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=800" alt="River">
+                    <div style="padding: 15px;"><h3>Silent Rivers</h3></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="parallax-hero" style="background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920'); height: 60vh;">
+            <div class="hero-text">The Horizon</div>
+        </div>
+
+        <footer class="footer">
+            <button class="register-btn" style="width: 150px;" onclick="location.reload()">Go Back</button>
+        </footer>
+    </div>
+
+    <script>
+        /* JAVASCRIPT FOR NAVIGATION */
+        function openWebsite() {
+            const nameInput = document.getElementById('username').value;
+            const emailInput = document.getElementById('email').value;
+
+            if(nameInput !== "" && emailInput !== "") {
+                // Hide Registration and show Website
+                document.getElementById('register-screen').style.display = 'none';
+                document.getElementById('main-website').style.display = 'block';
+                // Reset scroll position to top
+                window.scrollTo(0,0);
+            } else {
+                alert("Please fill in your name and email to enter.");
+            }
+        }
+    </script>
+
+</body>
+</html>
